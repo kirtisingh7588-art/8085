@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8085 Web Simulator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>8085 Web Simulator</h1>
+    <p>Online Microprocessor Programming Lab</p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2>Assembly Editor</h2>
+
+      <textarea id="code" spellcheck="false">LXI H, 2000H
+MVI M, 25H
+INR M
+MOV A, M
+HLT</textarea>
+
+      <div class="actions">
+        <button id="run">Run</button>
+        <button id="step">Step</button>
+        <button id="reset">Reset</button>
+      </div>
+
+      <p id="status" role="status">Ready.</p>
+      
+<h3>Program Counter & Current Instruction</h3>
+<div class="debug-panel">
+  <div class="debug-item">
+    <strong>PC (Next instruction)</strong>
+    <span id="pc-value">0000H</span>
+  </div>
+  <div class="debug-item">
+    <strong>Current Instruction</strong>
+    <span id="current-instruction">Ready</span>
+  </div>
+</div>
+
+<h3>Program Listing</h3>
+<div id="program-listing" class="program-listing"></div>
+
+
+      <h3>Execution Log</h3>
+      <pre id="log">Ready to execute.</pre>
+    </section>
+
+    <section class="panel">
+      <h2>Registers</h2>
+      <div id="registers" class="register-grid"></div>
+
+      <h2>Flags</h2>
+      <div id="flags" class="flags"></div>
+
+      <h2>Memory Preview</h2>
+      <p class="hint">
+        Displays 16 bytes starting from the HL address.
+      </p>
+      <div id="memory" class="memory-grid"></div>
+    </section>
+  </main>
+
+  <script src="simulator.js"></script>
+</body>
+</html>
